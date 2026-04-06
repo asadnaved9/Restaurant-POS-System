@@ -11,7 +11,6 @@ const MenuContainer = () => {
   const [itemId, setItemId] = useState();
   const dispatch = useDispatch();
 
-
   const increment = (id) => {
     setItemId(id);
     if (itemCount >= 4) return;
@@ -37,7 +36,8 @@ const MenuContainer = () => {
     };
 
     dispatch(addItems(newObj));
-    setItemCount(0);  }
+    setItemCount(0);
+  };
   return (
     <>
       <div className="grid grid-cols-4 gap-4 px-10 py-4 w-[100%]">
@@ -82,7 +82,10 @@ const MenuContainer = () => {
                 <h1 className="text-[#f5f5f5] text-lg font-semibold">
                   {item.name}
                 </h1>
-                <button onClick={() => handleAddToCart(item)} className="bg-[#2e4a40] text-[#02ca3a] p-2 rounded-lg cursor-pointer">
+                <button
+                  onClick={() => handleAddToCart(item)}
+                  className="bg-[#2e4a40] text-[#02ca3a] p-2 rounded-lg cursor-pointer"
+                >
                   <FaShoppingCart size={20} />
                 </button>
               </div>

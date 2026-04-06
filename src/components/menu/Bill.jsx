@@ -1,9 +1,8 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { getTotalPrice } from '../../redux/slices/cartSlice'
+import React from "react";
+import { useSelector } from "react-redux";
+import { getTotalPrice } from "../../redux/slices/cartSlice";
 
 const Bill = () => {
-
   const cartData = useSelector((state) => state.cart);
   const total = useSelector(getTotalPrice);
   const taxRate = 5.25;
@@ -11,7 +10,7 @@ const Bill = () => {
   const totalPriceWithTax = total + tax;
 
   return (
-<>
+    <>
       <div className="flex items-center justify-between px-5 mt-2">
         <p className="text-xs text-[#ababab] font-medium mt-2">
           Items({cartData.length})
@@ -59,8 +58,8 @@ const Bill = () => {
           Place Order
         </button>
       </div>
+    </>
+  );
+};
 
-    </>  )
-}
-
-export default Bill
+export default Bill;

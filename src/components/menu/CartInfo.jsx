@@ -9,14 +9,14 @@ const CartInfo = () => {
   const scrolLRef = useRef();
   const dispatch = useDispatch();
 
-    useEffect(() => {
-    if(scrolLRef.current){
+  useEffect(() => {
+    if (scrolLRef.current) {
       scrolLRef.current.scrollTo({
         top: scrolLRef.current.scrollHeight,
-        behavior: "smooth"
-      })
+        behavior: "smooth",
+      });
     }
-  },[cartData]);
+  }, [cartData]);
 
   const handleRemove = (itemId) => {
     dispatch(removeItem(itemId));
@@ -26,7 +26,10 @@ const CartInfo = () => {
       <h1 className="text-lg text-[#e4e4e4] font-semibold tracking-wide">
         Order Details
       </h1>
-      <div className="mt-4 overflow-y-scroll scrollbar-hide h-[350px]"  ref={scrolLRef}>
+      <div
+        className="mt-4 overflow-y-scroll scrollbar-hide h-[350px]"
+        ref={scrolLRef}
+      >
         {cartData.length === 0 ? (
           <p className="text-[#ababab] text-sm flex justify-center items-center h-[380px]">
             Your Cart is Empty. Start Adding items!
